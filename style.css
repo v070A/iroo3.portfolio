@@ -1,0 +1,246 @@
+/* Define the background image and cover the viewport */
+.desktop-bg {
+  /* UPDATED PATH */
+  background-image: url("images/bg5.gif");
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  font-family: "Inter", sans-serif;
+  position: relative;
+  overflow: hidden; /* Prevent body scroll */
+}
+
+/* Top Bar */
+.top-bar {
+  background-color: rgba(18, 18, 20, 0.7);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* App Launcher */
+.app-launcher {
+  background-color: rgba(30, 30, 35, 0.85); /* softer transparency */
+  backdrop-filter: blur(20px) brightness(0.7);
+  border: 1px solid rgba(100, 100, 100, 0.3);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  max-width: 600px;
+}
+.launcher-item:hover {
+  background-color: rgba(60, 60, 70, 0.8);
+}
+.launcher-item-active {
+  background-color: rgba(70, 70, 80, 0.9);
+  color: #60a5fa;
+  border-left: 3px solid #60a5fa;
+  padding-left: 17px !important;
+}
+
+/* Desktop Icons */
+.folder-icon {
+  cursor: pointer;
+  transition: transform 0.1s ease-in-out;
+}
+.folder-icon:hover {
+  transform: scale(1.05);
+}
+
+/* Window Styles */
+#content-view,
+#terminal-window {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 800px;
+  width: 90%;
+  z-index: 50;
+  transition: opacity 0.3s ease-out,
+    transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Default Content View Style (Transparent, NO BLUR) */
+#content-view {
+  background-color: rgba(18, 18, 20, 0.8);
+  border: 1px solid rgba(100, 100, 100, 0.3);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+}
+
+.content-hidden {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.95);
+  pointer-events: none;
+}
+.content-visible {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+  pointer-events: auto;
+}
+
+/* Terminal Styles */
+#terminal-window {
+  z-index: 55;
+  background-color: rgba(20, 20, 25, 0.98); /* Deep dark background */
+  border: 1px solid rgba(100, 100, 100, 0.3);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  font-family: "Consolas", "Courier New", monospace;
+  color: #d1d5db;
+  display: flex; /* Added to handle layout better */
+  flex-direction: column;
+}
+
+/* The area where previous commands appear */
+.terminal-output {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding-right: 1rem;
+  margin-bottom: 5px;
+}
+
+/* The bottom line with the prompt and input */
+.prompt-line {
+  display: flex;
+  align-items: center; /* Vertically aligns text and input */
+  width: 100%;
+}
+
+/* The actual input field */
+.terminal-input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #ffffff;
+  font-family: inherit; /* Inherits Consolas/Monospace */
+  font-size: inherit; /* Matches prompt text size exactly */
+  flex-grow: 1; /* Takes up remaining space */
+  padding: 0; /* Removes default input padding */
+  margin-left: 8px; /* Small gap between '$' and cursor */
+  caret-color: #ffffff; /* White cursor */
+}
+
+/* Colors for Arch Vibe (Blue/White) */
+.prompt-user {
+  color: #60a5fa;
+  font-weight: bold;
+} /* Blue */
+.prompt-dir {
+  color: #ffffff;
+  font-weight: bold;
+} /* White */
+.prompt-symbol {
+  color: #ffffff;
+}
+
+/* Modals (Profile, Resume, Beliefs) */
+#profile-picture-modal,
+#resume-modal,
+#beliefs-modal {
+  position: fixed;
+  /* Default centers, but JS will override this to corners */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  z-index: 60;
+  background-color: rgba(18, 18, 20, 0.9);
+  border: 1px solid rgba(100, 100, 100, 0.3);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  transition: opacity 0.3s ease-out,
+    transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Slightly wider for resume and beliefs */
+#resume-modal,
+#beliefs-modal {
+  width: 360px;
+}
+
+/* File Explorer List View */
+.file-explorer-item {
+  cursor: pointer;
+  transition: background-color 0.1s ease-in-out;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+}
+.file-explorer-item:hover {
+  background-color: rgba(60, 60, 70, 0.5);
+}
+
+/* --- Skills Grid Container (Folders) --- */
+.skills-grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  padding: 1rem;
+}
+.skills-grid-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 8px;
+  transition: background-color 0.2s;
+}
+.skills-grid-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* --- Gallery Grid Container (Images) --- */
+.gallery-grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 images per row */
+  gap: 1.5rem;
+  padding: 1rem;
+}
+.gallery-item {
+  cursor: pointer;
+  transition: transform 0.2s, opacity 0.2s;
+}
+.gallery-item:hover {
+  transform: scale(1.03);
+  opacity: 0.9;
+}
+.gallery-img {
+  width: 100%;
+  aspect-ratio: 1 / 1; /* Square */
+  object-fit: cover;
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+}
+
+/* --- SPECIAL CLASS FOR GALLERY DETAIL VIEW ONLY --- */
+.gallery-view-mode {
+  height: 600px !important;
+  display: flex !important;
+  flex-direction: column;
+  padding: 0 !important;
+  overflow: hidden;
+}
+.gallery-body-mode {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0 !important;
+}
+
+/* Shared */
+.drag-handle {
+  cursor: grab;
+  user-select: none;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #4b5563;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #6b7280;
+}
