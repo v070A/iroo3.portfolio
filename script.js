@@ -705,7 +705,7 @@ const PROFILE_IMAGES = [
     caption:
       "Photo 3/10: i like dyeing my hair copper even tho, yes, my hair is dying",
   },
-  { url: "images/p6.png.", caption: "Photo 4/10: and i like puzzles too lol" },
+  { url: "images/p6.png", caption: "Photo 4/10: and i like puzzles too lol" },
   { url: "images/p4.png", caption: "Photo 5/10: heres my pet hochi :D" },
   { url: "images/p79.jpg", caption: "Photo 6/10: ..." },
   {
